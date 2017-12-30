@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+.intro-cont {
+  height: 100%;
+  width: 100%;
+  background-color: grey;
+}
+
+.content-cont {
+  height: 100%;
+  width: 100%;
+}
+}
