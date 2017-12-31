@@ -1,22 +1,48 @@
 import $ from 'jquery';
+import anime from 'animejs';
 
-// var mousewheelevt = (/Firefox/i.test(navigator.userAgent)) ? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
-// $( document ).ready(function() {
-//   $( document ).bind(mousewheelevt, function(e){
-//       var evt = window.event || e //equalize event object     
-//       evt = evt.originalEvent ? evt.originalEvent : evt; //convert to originalEvent if possible               
-//       var delta = evt.detail ? evt.detail*(-40) : evt.wheelDelta //check for detail first, because it is used by Opera and FF
+let isScrolling = false;
+function autoScroll(e) {
+  if(isScrolling)
+    return;
+  if(e.originalEvent.wheelDelta > 0 && $(this).attr('class') === 'content-cont') {
+    isScrolling = true;
+    $('html').animate({
+      scrollTop: 0
+    }, 1000, function (e) {
+      isScrolling = false;
+    });
+  }
+  else if ($(this).attr('class') === 'intro-cont') {
+    isScrolling = true;
+    $('html').animate({
+      scrollTop: $('.intro-cont').get(0).scrollHeight
+    }, 1000, function (e) {
+      isScrolling = false;
+    });
+  }
+}
 
-//       if(delta > 0) {
-//         console.log('up');
-//       }
-//       else{
-//         console.log('down'); 
-//         $('html, body').animate({
-//             scrollTop: $(".content").offset().top
-//           }, 
-//           2000
-//         );
-//       }   
-//   });
-// });
+$(document).ready(function(){
+  $('html, body').on('mousewheel DOMMouseScroll', (e) => {return false;});
+  $('.intro-cont').on('mousewheel DOMMouseScroll', autoScroll);
+  $('.content-cont').on('mousewheel DOMMouseScroll', autoScroll);
+
+  // animation by Julien Garnier
+  var pathEls = document.querySelectorAll('path');
+  for (var i = 0; i < pathEls.length; i++) {
+    var pathEl = pathEls[i];
+    var offset = anime.setDashoffset(pathEl);
+    pathEl.setAttribute('stroke-dashoffset', offset);
+    anime({
+      targets: pathEl,
+      strokeDashoffset: [offset, 0],
+      duration: anime.random(1000, 3000),
+      delay: anime.random(0, 2000),
+      loop: true,
+      direction: 'alternate',
+      easing: 'easeInOutSine',
+      autoplay: true
+    });
+  }
+});
