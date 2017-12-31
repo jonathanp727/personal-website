@@ -76,26 +76,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+// animations
+let downarrow;
+
 let isScrolling = false;
 function autoScroll(e) {
   if(isScrolling)
     return;
   if(e.originalEvent.wheelDelta > 0 && __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this).attr('class') === 'content-cont') {
+    playPopOutAnimation();
     isScrolling = true;
     __WEBPACK_IMPORTED_MODULE_0_jquery___default()('html').animate({
       scrollTop: 0
     }, 1000, function (e) {
       isScrolling = false;
+      downarrow.play();
     });
   }
   else if (__WEBPACK_IMPORTED_MODULE_0_jquery___default()(this).attr('class') === 'intro-cont') {
     isScrolling = true;
+    playPopOutAnimation();
     __WEBPACK_IMPORTED_MODULE_0_jquery___default()('html').animate({
       scrollTop: __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.intro-cont').get(0).scrollHeight
     }, 1000, function (e) {
       isScrolling = false;
+      downarrow.pause();
     });
   }
+}
+
+function playPopOutAnimation() {
+  console.log('toggle');
+  __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.subcont').toggleClass('boxshadow');
 }
 
 __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document).ready(function(){
@@ -103,23 +115,24 @@ __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document).ready(function(){
   __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.intro-cont').on('mousewheel DOMMouseScroll', autoScroll);
   __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.content-cont').on('mousewheel DOMMouseScroll', autoScroll);
 
-  // animation by Julien Garnier
-  var pathEls = document.querySelectorAll('path');
-  for (var i = 0; i < pathEls.length; i++) {
-    var pathEl = pathEls[i];
-    var offset = __WEBPACK_IMPORTED_MODULE_1_animejs___default.a.setDashoffset(pathEl);
-    pathEl.setAttribute('stroke-dashoffset', offset);
-    __WEBPACK_IMPORTED_MODULE_1_animejs___default()({
-      targets: pathEl,
-      strokeDashoffset: [offset, 0],
-      duration: __WEBPACK_IMPORTED_MODULE_1_animejs___default.a.random(1000, 3000),
-      delay: __WEBPACK_IMPORTED_MODULE_1_animejs___default.a.random(0, 2000),
-      loop: true,
-      direction: 'alternate',
-      easing: 'easeInOutSine',
-      autoplay: true
-    });
-  }
+  downarrow = __WEBPACK_IMPORTED_MODULE_1_animejs___default()({
+    targets: '.down-arrow',
+    translateY: -10,
+    duration: 1500,
+    easing: 'easeInQuad',
+    direction: 'alternate',
+    loop: true
+  })
+
+  __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.down-arrow').on('click', function(e) {
+    downarrow.pause();
+    playPopOutAnimation();
+    __WEBPACK_IMPORTED_MODULE_0_jquery___default()('html').animate({
+      scrollTop: __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.intro-cont').get(0).scrollHeight
+    }, 1000);
+  });
+
+
 });
 
 
