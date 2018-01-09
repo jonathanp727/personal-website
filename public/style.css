@@ -1,8 +1,14 @@
-/*@font-face {
-  font-family: bebasneue;
-  src: url(bebas_neue/BebasNeueRegular.otf);
+@font-face {
+  font-family: "Myriad Pro";
+  src: url(font/myriad-pro.ttf);
   font-weight: normal;
-}*/
+}
+
+@font-face {
+  font-family: "Marion";
+  src: url(font/marion.ttf);
+  font-weight: normal;
+}
 
 * {
   margin: 0;
@@ -12,68 +18,129 @@
 html, body {
   height: 100%;
 }
+
 .intro-cont {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(#ebeef4, white);
-}
-
-.name-cont {
-}
-
-h1 {
-  margin: 0 auto;
-  font-size: 7em;
-}
-
-h2 {
-  margin: 0 auto;
-  font-size: 2em;
+  background: #1A1A1A;
+  position: relative;
   text-align: center;
 }
 
-.down-arrow {
+#background-img {
+  opacity: 0.26;
+  filter: alpha(opacity=26) progid:DXImageTransform.Microsoft.Alpha(opacity=26);
+  width: 100%;
+}
+
+h1 {
+  font-family: Myriad Pro;
+  font-size: 72px;
+  color: #CCCCCC;
+
   position: absolute;
-  bottom: 0;
-  width: 4%;
-  margin-bottom: 5px;
-  transition: margin-bottom .3s;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.down-arrow:hover {
-  margin-bottom: 0;
-}
+.about-cont {
+  background: #FFFEF8;
 
-.content-cont {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+}
+
+.proficiencies-cont {
+  width: 50%;
+
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+  width: 85%;
+  margin: 10% 0;
+}
+
+li {
+  margin-bottom: 5%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.proficiency-label {
+  font-family: Myriad Pro;
+  font-size: 24px;
+  color: #333333;
+
+  display: inline;
+  width: 20%;
+
+}
+
+svg {
+  display: inline;
+  width: 80%;
+  height: 38px;
+}
+
+rect {
+  stroke: #66949C;
+  fill-opacity: 0;
+  stroke-width: 5px;
+
   width: 100%;
-  background: linear-gradient(white, #aeb2c4);
+  height: 100%;
 }
 
-.subcont {
-  height: 95%;
-  width: 45%;
-  border-radius: .5em;
-  transition: box-shadow 1.7s;
-  background: linear-gradient(white, #ebeef4);
+.description-cont {
+  width: 50%;
 }
 
-.boxshadow {
-  box-shadow: 0 3px 2px 3px rgba(0, 0, 0, .2);
+.description-cont h2 {
+  font-family: Myriad Pro;
+  font-size: 48px;
+  color: #333333;
+
+  margin-left: 15%;
+  margin-right: 10%;
 }
 
-.divider {
-  width: 4%;
+.description-cont p {
+  font-family: Marion;
+  font-size: 21px;
+  color: #333333;
+
+  margin-left: 15%;
+  margin-right: 10%;
+  margin-bottom: 5px;
 }
 
-.subcont h3 {
-  padding-left: 8%;
-  padding-top: 2%;
-  font-size: 2em;
+.description-cont a {
+  font-family: Marion;
+  font-size: 16px;
+  color: #D66436;
+  text-decoration: none;
+
+  margin-left: 15%;
+  margin-right: 10%;
+}
+
+.transition-cont {
+  background : #666666;
+  height: 13%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transition-cont h3 {
+  font-family: Myriad Pro;
+  font-size: 36px;
+  color: #111111;
 }
