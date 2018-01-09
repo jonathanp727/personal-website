@@ -144,3 +144,76 @@ rect {
   font-size: 36px;
   color: #111111;
 }
+
+.projects-cont {
+  background-color: #333333;
+
+  display: flex;
+  justify-content: center;
+}
+
+.project {
+  width: 85%;
+}
+
+.project h2 {
+  font-family: Helvetica;
+  font-size: 48px;
+  font-weight: 200;
+  color: #FFFEF8;
+
+  padding-top: 5%;
+  margin-bottom: 3%;
+}
+
+.project .images-cont {
+  display: flex;
+  justify-content: space-between;
+}
+
+.project img {
+  height: auto; 
+  width: auto; 
+  max-width: 300px; 
+  max-height: 300px;
+}
+
+.project p {
+  font-family: Marion;
+  font-size: 24px;
+  color: #7D7C7C;
+
+  margin-top: 3%;
+}
+
+.project .accent {
+  font-family: Myriad Pro;
+  font-size: 28px;
+  color: #66949C;
+
+  margin-top: 1%;
+}
+
+.project .button-cont {
+  margin-top: 4%;
+  margin-bottom: 4%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button {
+  font-family: Myriad Pro;
+  font-size: 20px;
+  text-decoration: none;
+  color: #FFFEF8;
+  padding: 1% 2%;
+  background-color: #D66436;
+  white-space: nowrap;
+
+  margin-left: 3%;
+}
+
+footer {
+  background: #1A1A1A;
+  height: 7%;
+}
