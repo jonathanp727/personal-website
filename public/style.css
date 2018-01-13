@@ -91,12 +91,60 @@ svg {
   height: 38px;
 }
 
-rect {
+.border-rect {
   stroke: #66949C;
   fill-opacity: 0;
   stroke-width: 5px;
 
   width: 100%;
+  height: 100%;
+}
+
+#fill-rect-1 {
+  width: 75%;
+
+  fill: #66949C;
+  fill-opacity: 1;
+  height: 100%;
+}
+
+#fill-rect-2 {
+  width: 85%;
+
+  fill: #66949C;
+  fill-opacity: 1;
+  height: 100%;
+}
+
+#fill-rect-3 {
+  width: 55%;
+
+  fill: #66949C;
+  fill-opacity: 1;
+  height: 100%;
+}
+
+#fill-rect-4 {
+  width: 35%;
+
+  fill: #66949C;
+  fill-opacity: 1;
+  height: 100%;
+}
+
+#fill-rect-5 {
+  width: 45%;
+
+  fill: #66949C;
+  fill-opacity: 1;
+  height: 100%;
+}
+
+#fill-rect-6 {
+  width: 65%;
+
+  fill: #66949C;
+  fill-opacity: 1;
   height: 100%;
 }
 
@@ -198,12 +246,19 @@ rect {
   margin-top: 3%;
 }
 
+.project .accent-cont {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .project .accent {
   font-family: Myriad Pro;
   font-size: 28px;
   color: #66949C;
 
   margin-top: 1%;
+  margin-right: 1.4em;
 }
 
 .project .button-cont {
@@ -223,6 +278,14 @@ rect {
   background-color: #D66436;
 
   margin-left: 3%;
+}
+
+.button:hover {
+  background-color: #a22018;
+}
+
+.button:active {
+  background-color: #8e0f43;
 }
 
 footer {
@@ -500,10 +563,11 @@ rect {
 
 .project .accent {
   font-family: Myriad Pro;
-  font-size: 1.4em;
+  font-size: 1.2em;
   color: #66949C;
 
   margin-top: 1%;
+  margin-right: .5em;
 }
 
 .project .button-cont {
