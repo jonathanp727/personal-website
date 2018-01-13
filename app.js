@@ -9,7 +9,7 @@ app.use((req, res, next) => {
 
 app.use(express.static('public'));
 
-const server = app.listen(3000, () => {
+const server = app.listen(80, () => {
     const host = server.address().address
     const port = server.address().port
     console.log('Server Started');
